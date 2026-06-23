@@ -3,7 +3,6 @@ import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { HiArrowRight, HiArrowDown } from 'react-icons/hi'
 import { FiGithub, FiLinkedin } from 'react-icons/fi'
-
 export default function Hero() {
   const sectionRef = useRef(null)
   const headingRef = useRef(null)
@@ -16,29 +15,20 @@ export default function Hero() {
   useEffect(() => {
     const tl = gsap.timeline({ delay: 2.2 })
 
-    // Background circles
+    // Ambient background circles
     gsap.to(bgCircle1.current, {
-      scale: 1.2,
-      duration: 6,
-      repeat: -1,
-      yoyo: true,
-      ease: 'sine.inOut',
+      scale: 1.2, duration: 6, repeat: -1, yoyo: true, ease: 'sine.inOut',
     })
     gsap.to(bgCircle2.current, {
-      scale: 1.3,
-      duration: 8,
-      repeat: -1,
-      yoyo: true,
-      ease: 'sine.inOut',
-      delay: 1,
+      scale: 1.3, duration: 8, repeat: -1, yoyo: true, ease: 'sine.inOut', delay: 1,
     })
 
-    // Stagger heading letters
+    // Heading lines reveal
     const lines = headingRef.current.querySelectorAll('.hero-line')
     tl.fromTo(
       lines,
-      { yPercent: 100, opacity: 0 },
-      { yPercent: 0, opacity: 1, duration: 1, stagger: 0.15, ease: 'power4.out' }
+      { yPercent: 110, opacity: 0 },
+      { yPercent: 0, opacity: 1, duration: 1, stagger: 0.14, ease: 'power4.out' }
     )
 
     tl.fromTo(
@@ -85,43 +75,43 @@ export default function Hero() {
       ref={sectionRef}
       className="relative min-h-screen flex flex-col justify-center overflow-hidden bg-dark-900"
     >
-      {/* Background glows */}
+      {/* Ambient glows */}
       <div
         ref={bgCircle1}
-        className="absolute top-1/4 left-1/4 w-[500px] h-[500px] rounded-full"
+        className="absolute top-1/3 left-1/3 w-[600px] h-[600px] rounded-full pointer-events-none"
         style={{
-          background: 'radial-gradient(circle, rgba(201,168,76,0.08) 0%, transparent 70%)',
-          filter: 'blur(40px)',
+          background: 'radial-gradient(circle, rgba(201,168,76,0.07) 0%, transparent 70%)',
+          filter: 'blur(50px)',
         }}
       />
       <div
         ref={bgCircle2}
-        className="absolute bottom-1/4 right-1/4 w-[400px] h-[400px] rounded-full"
+        className="absolute bottom-1/4 right-1/3 w-[400px] h-[400px] rounded-full pointer-events-none"
         style={{
-          background: 'radial-gradient(circle, rgba(201,168,76,0.06) 0%, transparent 70%)',
+          background: 'radial-gradient(circle, rgba(201,168,76,0.05) 0%, transparent 70%)',
           filter: 'blur(60px)',
         }}
       />
 
-      {/* Dot grid overlay */}
-      <div className="absolute inset-0 dot-grid opacity-30" />
+      {/* Dot grid */}
+      <div className="absolute inset-0 dot-grid opacity-25 pointer-events-none" />
 
-      {/* Grid lines */}
+      {/* Subtle vertical grid lines */}
       <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute left-1/4 top-0 bottom-0 w-px bg-white/[0.03]" />
-        <div className="absolute right-1/4 top-0 bottom-0 w-px bg-white/[0.03]" />
-        <div className="absolute top-1/3 left-0 right-0 h-px bg-white/[0.03]" />
+        <div className="absolute left-1/4 top-0 bottom-0 w-px bg-white/[0.025]" />
+        <div className="absolute right-1/4 top-0 bottom-0 w-px bg-white/[0.025]" />
+        <div className="absolute top-1/3 left-0 right-0 h-px bg-white/[0.025]" />
       </div>
 
       {/* Social sidebar */}
-      <div className="absolute left-6 xl:left-10 bottom-1/3 hidden lg:flex flex-col items-center gap-4">
+      <div className="absolute left-6 xl:left-10 top-1/2 -translate-y-1/2 hidden lg:flex flex-col items-center gap-4 z-20">
         <a
           href="https://github.com"
           target="_blank"
           rel="noopener noreferrer"
           className="text-white/30 hover:text-[#c9a84c] transition-colors duration-300"
         >
-          <FiGithub size={18} />
+          <FiGithub size={17} />
         </a>
         <a
           href="https://linkedin.com"
@@ -129,21 +119,21 @@ export default function Hero() {
           rel="noopener noreferrer"
           className="text-white/30 hover:text-[#c9a84c] transition-colors duration-300"
         >
-          <FiLinkedin size={18} />
+          <FiLinkedin size={17} />
         </a>
-        <div className="w-px h-20 bg-white/10 mt-2" />
+        <div className="w-px h-16 bg-white/10 mt-2" />
       </div>
 
       {/* Email sidebar */}
-      <div className="absolute right-6 xl:right-10 bottom-1/3 hidden lg:flex flex-col items-center gap-4">
+      <div className="absolute right-6 xl:right-10 top-1/2 -translate-y-1/2 hidden lg:flex flex-col items-center gap-4 z-20">
         <a
           href="mailto:mujiburrahmanmanna@gmail.com"
-          className="font-mono text-xs tracking-widest text-white/30 hover:text-[#c9a84c] transition-colors duration-300"
+          className="font-mono text-[10px] tracking-widest text-white/25 hover:text-[#c9a84c] transition-colors duration-300"
           style={{ writingMode: 'vertical-rl' }}
         >
           mujiburrahmanmanna@gmail.com
         </a>
-        <div className="w-px h-20 bg-white/10 mt-2" />
+        <div className="w-px h-16 bg-white/10 mt-2" />
       </div>
 
       {/* Main content */}
@@ -221,10 +211,10 @@ export default function Hero() {
       {/* Scroll indicator */}
       <button
         onClick={scrollToAbout}
-        className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-white/30 hover:text-[#c9a84c] transition-colors duration-300"
+        className="absolute bottom-6 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-white/25 hover:text-[#c9a84c] transition-colors duration-300 z-20"
       >
-        <span className="font-mono text-xs tracking-widest">Scroll</span>
-        <HiArrowDown className="animate-bounce" />
+        <span className="font-mono text-[10px] tracking-widest uppercase">Scroll</span>
+        <HiArrowDown className="animate-bounce" size={14} />
       </button>
     </section>
   )

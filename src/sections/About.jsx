@@ -3,6 +3,7 @@ import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { HiLocationMarker, HiMail, HiPhone, HiBadgeCheck } from 'react-icons/hi'
 import SectionLabel from '../components/SectionLabel'
+import profileImg from '../assets/manna.jpg'
 
 const info = [
   { icon: <HiLocationMarker />, label: 'Location', value: 'Sylhet, Bangladesh' },
@@ -104,29 +105,15 @@ export default function About() {
               <div className="absolute -inset-4 border border-[#c9a84c]/15 rounded-sm" />
               <div className="absolute -inset-2 border border-[#c9a84c]/10 rounded-sm" />
 
-              {/* Image placeholder with initials */}
+              {/* Profile photo */}
               <div className="relative w-full h-full bg-dark-600 overflow-hidden rounded-sm">
-                {/* Gradient overlay */}
-                <div className="absolute inset-0 bg-gradient-to-br from-[#c9a84c]/10 to-transparent z-10" />
-
-                {/* Initials / placeholder */}
-                <div className="absolute inset-0 flex items-center justify-center z-20">
-                  <div className="text-center">
-                    <div className="w-36 h-36 rounded-full bg-[#c9a84c]/10 border border-[#c9a84c]/30 flex items-center justify-center mx-auto mb-4">
-                      <span className="font-heading text-5xl font-bold text-[#c9a84c]">M</span>
-                    </div>
-                    <p className="font-mono text-xs text-white/30 tracking-widest">YOUR PHOTO HERE</p>
-                  </div>
-                </div>
-
-                {/* Grid overlay */}
-                <div
-                  className="absolute inset-0 z-30 opacity-20"
-                  style={{
-                    backgroundImage: 'linear-gradient(rgba(201,168,76,0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(201,168,76,0.1) 1px, transparent 1px)',
-                    backgroundSize: '30px 30px',
-                  }}
+                <img
+                  src={profileImg}
+                  alt="Mujibur Rahman Manna — Frontend Web Developer"
+                  className="w-full h-full object-cover object-center"
                 />
+                {/* Subtle gold gradient overlay at bottom */}
+                <div className="absolute inset-0 bg-gradient-to-t from-[#030303]/60 via-transparent to-transparent z-10" />
               </div>
 
               {/* Experience badge */}
