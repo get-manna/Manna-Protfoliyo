@@ -3,6 +3,14 @@ import { gsap } from 'gsap'
 import { HiArrowRight, HiExternalLink } from 'react-icons/hi'
 import { FiGithub } from 'react-icons/fi'
 import SectionLabel from '../components/SectionLabel'
+import {
+  CorporateMockup,
+  EcommerceMockup,
+  RealEstateMockup,
+  PortfolioMockup,
+  AgencyMockup,
+  RestaurantMockup,
+} from '../components/ProjectMockup'
 
 const projects = [
   {
@@ -12,6 +20,7 @@ const projects = [
     tags: ['HTML', 'CSS', 'JavaScript', 'GSAP'],
     category: 'Corporate',
     color: '#c9a84c',
+    Mockup: CorporateMockup,
   },
   {
     number: '02',
@@ -20,6 +29,7 @@ const projects = [
     tags: ['WordPress', 'WooCommerce', 'Elementor', 'PHP'],
     category: 'E-Commerce',
     color: '#8b5cf6',
+    Mockup: EcommerceMockup,
   },
   {
     number: '03',
@@ -28,6 +38,7 @@ const projects = [
     tags: ['WordPress', 'Custom Dev', 'CSS3', 'JS'],
     category: 'Real Estate',
     color: '#10b981',
+    Mockup: RealEstateMockup,
   },
   {
     number: '04',
@@ -36,6 +47,7 @@ const projects = [
     tags: ['React.js', 'Tailwind CSS', 'GSAP', 'Vite'],
     category: 'Portfolio',
     color: '#f59e0b',
+    Mockup: PortfolioMockup,
   },
   {
     number: '05',
@@ -44,6 +56,7 @@ const projects = [
     tags: ['React.js', 'Tailwind', 'GSAP', 'Vercel'],
     category: 'Agency',
     color: '#ef4444',
+    Mockup: AgencyMockup,
   },
   {
     number: '06',
@@ -52,6 +65,7 @@ const projects = [
     tags: ['WordPress', 'Elementor', 'WooCommerce'],
     category: 'Food & Beverage',
     color: '#ec4899',
+    Mockup: RestaurantMockup,
   },
 ]
 
@@ -79,34 +93,10 @@ function ProjectCard({ project, index }) {
   return (
     <div ref={cardRef} className="project-card group relative overflow-hidden border border-white/5 hover:border-[#c9a84c]/20 transition-colors duration-500">
       {/* Visual */}
-      <div className="relative aspect-[16/9] overflow-hidden bg-dark-600">
-        {/* Placeholder visual */}
-        <div
-          className="project-img absolute inset-0 transition-transform duration-700 ease-out"
-          style={{
-            background: `linear-gradient(135deg, ${project.color}15 0%, #111 50%, ${project.color}08 100%)`,
-          }}
-        />
-
-        {/* Grid overlay */}
-        <div
-          className="absolute inset-0 opacity-30"
-          style={{
-            backgroundImage: 'linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px)',
-            backgroundSize: '40px 40px',
-          }}
-        />
-
-        {/* Center design element */}
-        <div className="absolute inset-0 flex items-center justify-center">
-          <div className="text-center">
-            <span className="font-heading text-7xl font-bold opacity-10" style={{ color: project.color }}>
-              {project.number}
-            </span>
-            <p className="font-mono text-xs tracking-widest text-white/20 mt-2 uppercase">
-              {project.category}
-            </p>
-          </div>
+      <div className="relative aspect-[16/9] overflow-hidden bg-[#0d0d0d]">
+        {/* SVG Mockup */}
+        <div className="project-img absolute inset-0 transition-transform duration-700 ease-out">
+          <project.Mockup color={project.color} />
         </div>
 
         {/* Overlay on hover */}

@@ -7,7 +7,6 @@ export default function Hero() {
   const sectionRef = useRef(null)
   const headingRef = useRef(null)
   const subRef = useRef(null)
-  const statsRef = useRef(null)
   const ctaRef = useRef(null)
   const bgCircle1 = useRef(null)
   const bgCircle2 = useRef(null)
@@ -43,13 +42,6 @@ export default function Hero() {
       { y: 20, opacity: 0 },
       { y: 0, opacity: 1, duration: 0.6, stagger: 0.1, ease: 'power3.out' },
       '-=0.4'
-    )
-
-    tl.fromTo(
-      statsRef.current.children,
-      { y: 30, opacity: 0 },
-      { y: 0, opacity: 1, duration: 0.6, stagger: 0.1, ease: 'power3.out' },
-      '-=0.3'
     )
 
     // Parallax on scroll
@@ -139,18 +131,12 @@ export default function Hero() {
       {/* Main content */}
       <div className="section-padding pt-32 relative z-10">
         <div className="max-w-screen-xl mx-auto">
-          <p className="label-text mb-8">Available for Freelance</p>
+          <p className="label-text mb-8">Available for Freelance Work</p>
 
           <div ref={headingRef} className="overflow-hidden mb-8">
             <div className="overflow-hidden">
               <div className="hero-line heading-xl text-white opacity-0">
-                Frontend
-              </div>
-            </div>
-            <div className="overflow-hidden">
-              <div className="hero-line heading-xl opacity-0">
-                <span className="text-stroke">Web</span>
-                <span className="text-white"> Developer</span>
+                Web Developer
               </div>
             </div>
             <div className="overflow-hidden">
@@ -161,15 +147,15 @@ export default function Hero() {
             </div>
             <div className="overflow-hidden">
               <div className="hero-line heading-xl text-white opacity-0">
-                Expert<span className="text-[#c9a84c]">.</span>
+                Specialist<span className="text-[#c9a84c]">.</span>
               </div>
             </div>
           </div>
 
           <div ref={subRef} className="max-w-xl opacity-0">
-            <p className="text-white/50 text-lg leading-relaxed mb-2">
-              I'm <span className="text-white font-medium">Mujibur Rahman Manna</span> — a passionate developer
-              from Bangladesh crafting modern, responsive, high-converting websites.
+            <p className="text-white/50 text-lg leading-relaxed">
+              I'm <span className="text-white font-medium">Mujibur Rahman Manna</span> — I build fast,
+              modern websites that look great, work perfectly, and help your business grow online.
             </p>
           </div>
 
@@ -184,27 +170,10 @@ export default function Hero() {
               onClick={() => gsap.to(window, { scrollTo: '#projects', duration: 1, ease: 'power3.inOut' })}
               className="btn-outline opacity-0"
             >
-              View Portfolio
+              View My Work
             </button>
           </div>
 
-          {/* Stats */}
-          <div ref={statsRef} className="flex flex-wrap gap-10 mt-20 pt-10 border-t border-white/5">
-            {[
-              { value: '3+', label: 'Years Experience' },
-              { value: '100+', label: 'Projects Completed' },
-              { value: '50+', label: 'Happy Clients' },
-            ].map((stat) => (
-              <div key={stat.label} className="opacity-0">
-                <div className="stat-number text-5xl lg:text-6xl font-heading font-bold leading-none">
-                  {stat.value}
-                </div>
-                <p className="text-white/40 text-sm tracking-wider mt-2 uppercase font-mono">
-                  {stat.label}
-                </p>
-              </div>
-            ))}
-          </div>
         </div>
       </div>
 
